@@ -72,11 +72,5 @@
       "prettier --write"
     ]
   },
-  "resolutions": {
-    "@algolia/autocomplete-core/@algolia/client-search": "^4.10.5",
-    "@algolia/autocomplete-core/algoliasearch": "^4.10.5",
-    "@algolia/autocomplete-plugin-algolia-insights/@algolia/client-search": "^4.10.5",
-    "@algolia/autocomplete-plugin-algolia-insights/algoliasearch": "^4.10.5"
-  },
   "packageManager": "yarn@3.6.1"
 }
