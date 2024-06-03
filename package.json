@@ -12,10 +12,12 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@algolia/client-search": "^4.23.3",
     "@headlessui/react": "1.7.19",
     "@next/bundle-analyzer": "14.2.3",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.12",
+    "algoliasearch": "^4.23.3",
     "autoprefixer": "^10.4.13",
     "contentlayer2": "0.4.6",
     "esbuild": "0.20.2",
@@ -28,8 +30,8 @@
     "next-themes": "^0.3.0",
     "pliny": "0.2.1",
     "postcss": "^8.4.24",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
+    "react": "18",
+    "react-dom": "18",
     "reading-time": "1.5.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-citation": "^2.0.0",
@@ -41,6 +43,7 @@
     "remark-gfm": "^4.0.0",
     "remark-github-blockquote-alert": "^1.2.1",
     "remark-math": "^6.0.0",
+    "search-insights": "^2.14.0",
     "tailwindcss": "^3.4.3",
     "unist-util-visit": "^5.0.0"
   },
@@ -68,6 +71,12 @@
     "*.+(js|jsx|ts|tsx|json|css|md|mdx)": [
       "prettier --write"
     ]
+  },
+  "resolutions": {
+    "@algolia/autocomplete-core/@algolia/client-search": "^4.10.5",
+    "@algolia/autocomplete-core/algoliasearch": "^4.10.5",
+    "@algolia/autocomplete-plugin-algolia-insights/@algolia/client-search": "^4.10.5",
+    "@algolia/autocomplete-plugin-algolia-insights/algoliasearch": "^4.10.5"
   },
   "packageManager": "yarn@3.6.1"
 }
