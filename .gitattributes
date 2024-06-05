@@ -1,5 +1,8 @@
+#  - Git 属性文件，用于控制 Git 的行为，比如文件的行结束符、文件合并策略等。此处配置了各种文件类型的 Git 行为，确保文本文件在提交时统一使用 LF 行结束符，并正确处理二进制文件。
 ## Source: https://github.com/alexkaratarakis/gitattributes
 ## Modified * text=auto to * text=auto eol=lf eol=lf to force LF endings.
+
+
 
 ## GITATTRIBUTES FOR WEB PROJECTS
 #
@@ -17,8 +20,9 @@
 ##   text and leave all files detected as binary untouched.
 ##   This will handle all files NOT defined below.
 *                 text=auto eol=lf
+# 自动检测,text=auto: Git 会自动检测文件类型，如果是文本文件，则统一转换为 LF 行结束符。eol=lf: 强制文本文件使用 LF 行结束符。
 
-# Source code
+# Source code源码文件:针对不同类型的源码文件,设置文本文件和行结束符.
 *.bash            text eol=lf
 *.bat             text eol=crlf
 *.cmd             text eol=crlf
@@ -53,10 +57,10 @@
 *.xml             text
 *.xhtml           text diff=html
 
-# Docker
+# Docker,Dockerfile 作为文本文件处理
 Dockerfile        text
 
-# Documentation
+# Documentation,文档文件统一处理为文本文件。
 *.ipynb           text
 *.markdown        text
 *.md              text
@@ -120,7 +124,7 @@ makefile          text
 # Heroku
 Procfile          text
 
-# Graphics
+# Graphics,视频文件统一处理为二进制文件
 *.ai              binary
 *.bmp             binary
 *.eps             binary
@@ -139,8 +143,7 @@ Procfile          text
 *.psd             binary
 # SVG treated as an asset (binary) by default.
 *.svg             text
-# If you want to treat it as binary,
-# use the following line instead.
+# If you want to treat it as binary,use the following line instead.
 # *.svg           binary
 *.svgz            binary
 *.tif             binary
@@ -195,8 +198,8 @@ Procfile          text
 *.exe             binary
 *.pyc             binary
 
-# RC files (like .babelrc or .eslintrc)
+# RC files (like .babelrc or .eslintrc) 
 *.*rc             text
-
+# RC 文件和忽略文件作为文本文件处理。
 # Ignore files (like .npmignore or .gitignore)
 *.*ignore         text

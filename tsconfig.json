@@ -1,22 +1,25 @@
 {
+  // - TypeScript 配置文件，用于配置 TypeScript 编译器的行为和选项。
+  //文件配置了 TypeScript 编译器的多个选项，以便与 Next.js 项目集成，并支持增量编译、模块解析、路径别名等功能，同时确保类型检查的一致性和灵活性。
   "compilerOptions": {
-    "incremental": true,
-    "target": "ES6",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": false,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "composite": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "baseUrl": ".",
+    "incremental": true,//启用增量编译，以加快后续编译速度。
+    "target": "ES6",//设置编译后的 JavaScript 版本，这里是 ES6。
+    "lib": ["dom", "dom.iterable", "esnext"],//指定 TypeScript 应包含的库，dom, dom.iterable, esnext。
+    "allowJs": true,//允许编译 .js 文件。
+    "skipLibCheck": true,//跳过库文件的类型检查。
+    "strict": false,//严格类型检查模式，这里设置为 false，即不启用。
+    "forceConsistentCasingInFileNames": true,//强制文件名一致使用大小写。
+    "noEmit": true,//不生成编译后的输出文件。
+    "composite": true,//启用项目的增量编译和项目引用。
+    "esModuleInterop": true,//启用对 ES 模块默认导入的互操作性。
+    "module": "esnext",//设置模块代码生成的格式，这里是 esnext。
+    "moduleResolution": "node",//模块解析策略，这里使用 node 模块解析。
+    "resolveJsonModule": true,//允许导入 JSON 模块。
+    "isolatedModules": true,//启用每个文件的单独编译。
+    "jsx": "preserve",//设置 JSX 代码的编译方式，这里是 preserve，即保持 JSX 语法。
+    "baseUrl": ".",//基础路径，设置为当前目录 .。
     "paths": {
+      //设置路径别名，用于简化导入路径。
       "@/components/*": ["components/*"],
       "@/data/*": ["data/*"],
       "@/layouts/*": ["layouts/*"],
@@ -24,13 +27,16 @@
       "contentlayer/generated": ["./.contentlayer/generated"]
     },
     "plugins": [
+      //指定 TypeScript 插件，这里是 next。
       {
         "name": "next"
       }
     ],
     "strictNullChecks": true
+    //启用严格的空值检查。
   },
   "include": [
+    //指定要包含在编译过程中的文件和目录。
     "next-env.d.ts",
     "**/*.js",
     "**/*.mjs",
@@ -42,4 +48,5 @@
     ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
+  //指定要排除在编译过程之外的目录。
 }

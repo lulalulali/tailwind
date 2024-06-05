@@ -1,4 +1,4 @@
-{
+{//   - JavaScript 项目配置文件，通常用于配置 JavaScript 项目的路径别名和编译选项，适用于 VSCode 等 IDE。  一个 TypeScript 项目配置文件（tsconfig.json）的一部分，定义了项目的路径别名和编译选项。它主要用于帮助编译器和 IDE（如 VSCode）正确解析和补全模块路径。
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -7,6 +7,7 @@
       "@/layouts/*": ["layouts/*"],
       "@/css/*": ["css/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
+      
     }
   }
 }

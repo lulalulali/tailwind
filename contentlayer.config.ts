@@ -1,3 +1,5 @@
+//   - Contentlayer 配置文件，用于配置 Contentlayer 的行为，通常用于定义内容数据的类型和来源。
+
 import { defineDocumentType, ComputedFields, makeSource } from 'contentlayer2/source-files'
 import { writeFileSync } from 'fs'
 import readingTime from 'reading-time'
@@ -23,11 +25,13 @@ import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 import siteMetadata from './data/siteMetadata'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
+//以上导入模块:defineDocumentType, ComputedFields, makeSource 等是 Contentlayer 的核心模块，用于定义文档类型和生成内容源。其他模块如 fs, reading-time, github-slugger, path 等用于文件操作、阅读时间计算、生成 slug 和路径处理等。还导入了多个 Remark 和 Rehype 插件，用于处理和转换 Markdown 和 HTML 内容。
 
 const root = process.cwd()
 const isProduction = process.env.NODE_ENV === 'production'
+//定义全局变量root：当前工作目录。isProduction：判断是否为生产环境。
 
-// heroicon mini link
+// heroicon mini link,生成一个用于链接的 SVG 图标，插入到 HTML 内容中。
 const icon = fromHtmlIsomorphic(
   `
   <span class="content-header-link">
@@ -55,10 +59,11 @@ const computedFields: ComputedFields = {
     resolve: (doc) => doc._raw.sourceFilePath,
   },
   toc: { type: 'string', resolve: (doc) => extractTocHeadings(doc.body.raw) },
+  //计算字段,computedFields：定义了一些计算字段，如阅读时间、slug、路径、文件路径和目录表（toc）。
 }
 
 /**
- * Count the occurrences of all tags across blog posts and write to json file
+ * Count the occurrences of all tags across blog posts and write to json file统计博客文章中所有标签的出现次数并写入 json 文件
  */
 function createTagCount(allBlogs) {
   const tagCount: Record<string, number> = {}
@@ -75,6 +80,7 @@ function createTagCount(allBlogs) {
     }
   })
   writeFileSync('./app/tag-data.json', JSON.stringify(tagCount))
+  //辅助函数,createTagCount(allBlogs)：计算所有博客标签的出现次数，并将结果写入 tag-data.json 文件。
 }
 
 function createSearchIndex(allBlogs) {
@@ -88,9 +94,11 @@ function createSearchIndex(allBlogs) {
     )
     console.log('Local search index generated...')
   }
+  //createSearchIndex(allBlogs)：如果站点配置了本地搜索，则生成搜索索引文件。
 }
 
 export const Blog = defineDocumentType(() => ({
+  //定义文档类型,Blog：定义博客文档类型，包含字段如 title, date, tags, summary 等，并计算一些额外的字段如 structuredData。
   name: 'Blog',
   filePathPattern: 'blog/**/*.mdx',
   contentType: 'mdx',
@@ -126,6 +134,7 @@ export const Blog = defineDocumentType(() => ({
 }))
 
 export const Authors = defineDocumentType(() => ({
+//Authors：定义作者文档类型，包含字段如 name, avatar, occupation 等。
   name: 'Authors',
   filePathPattern: 'authors/**/*.mdx',
   contentType: 'mdx',
@@ -144,6 +153,7 @@ export const Authors = defineDocumentType(() => ({
 }))
 
 export default makeSource({
+  //生成内容源,makeSource：生成内容源，指定内容目录路径、文档类型和 MDX 配置，包括 Remark 和 Rehype 插件。
   contentDirPath: 'data',
   documentTypes: [Blog, Authors],
   mdx: {
