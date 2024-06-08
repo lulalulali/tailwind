@@ -1,3 +1,6 @@
+//这个文件用于展示文章顶部的横幅。横幅通常包括文章的标题、背景图片、发布时间等信息，增强文章的视觉吸引力。  一个用于展示博客文章详细内容的 React 组件 PostLayout。它接收博客文章内容、作者详情、上一篇和下一篇文章的信息，以及文章内容的子组件，并进行渲染展示。
+//主要功能--显示文章发布时间：在文章头部显示文章的发布日期。显示文章标题：使用 PageTitle 组件显示文章标题。显示作者信息：包括头像、姓名、Twitter 链接等。显示文章内容：渲染文章主体内容。添加评论功能：如果 siteMetadata.comments 为 true，则在文章底部显示评论部分。显示标签：文章关联的标签。导航链接：提供返回博客列表页的链接，以及导航到上一篇和下一篇文章的链接。
+
 import { ReactNode } from 'react'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog, Authors } from 'contentlayer/generated'
@@ -9,10 +12,12 @@ import Image from '@/components/Image'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+//ReactNode：用于类型声明。CoreContent：一个用于处理文章内容的工具函数。Comments、Link、PageTitle、SectionContainer、Image、Tag、ScrollTopAndComment：各种自定义组件。siteMetadata：站点元数据。
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(`${siteMetadata.siteUrl}/${path}`)}`
+//URL生成函数--editUrl：生成编辑文章的 GitHub 链接。discussUrl：生成在 Twitter 上讨论文章的链接。
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
   weekday: 'long',
@@ -20,6 +25,7 @@ const postDateTemplate: Intl.DateTimeFormatOptions = {
   month: 'long',
   day: 'numeric',
 }
+//日期格式模板--postDateTemplate：日期格式模板，用于格式化文章发布日期。
 
 interface LayoutProps {
   content: CoreContent<Blog>
@@ -28,6 +34,7 @@ interface LayoutProps {
   prev?: { path: string; title: string }
   children: ReactNode
 }
+//组件postlayout--LayoutProps：组件的属性类型。
 
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
   const { filePath, path, slug, date, title, tags } = content
@@ -166,3 +173,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
     </SectionContainer>
   )
 }
+//PostLayout 组件接收 content、authorDetails、next、prev 和 children 作为参数，并解构出 filePath、path、slug、date、title 和 tags。
+//文章内容展示--使用 SectionContainer 包裹整个内容。显示文章的发布时间和标题。
+//假设 date 是 '2024-06-09'，siteMetadata.locale 是 'en-US'，格式化后的结果将类似于 'Sunday, June 9, 2024'。<time dateTime="2024-06-09">  Sunday, June 9, 2024</time>这样可以确保日期以易读且本地化的方式显示给用户，同时保留了机器可读的日期格式用于语义 HTML 和 SEO。
+//--作者信息展示:使用 Image 组件显示作者头像，Link 组件显示作者的 Twitter 链接。--文章内容渲染:渲染文章主体内容以及评论部分。提供讨论链接和编辑链接。---标签和导航链接:显示文章的标签和上一篇、下一篇文章的导航链接。提供返回博客列表页的链接。

@@ -1,6 +1,8 @@
+/* 使用了 Tailwind CSS，并对一些自定义样式进行了定义和调整。 这段代码通过使用 Tailwind CSS 提供的实用工具类来简化和定制样式，同时也包含了一些特定元素的自定义样式定义，以实现更符合需求的显示效果。这种方式结合了 Tailwind CSS 的灵活性和自定义样式的精确控制*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* @tailwind base;：导入 Tailwind 的基本样式。@tailwind components;：导入 Tailwind 的组件样式。@tailwind utilities;：导入 Tailwind 的实用工具类。 */
 
 .task-list-item::before {
   @apply hidden;
@@ -9,6 +11,8 @@
 .task-list-item {
   @apply list-none;
 }
+/* 任务列表项---.task-list-item::before：隐藏任务列表项前的默认标记。
+.task-list-item：将任务列表项的样式设置为无列表标记。 */
 
 .footnotes {
   @apply mt-12 border-t border-gray-200 pt-8 dark:border-gray-700;
@@ -17,10 +21,13 @@
 .data-footnote-backref {
   @apply no-underline;
 }
+/* 脚注样式--.footnotes：设置脚注区域的上外边距、顶部边框、顶部内边距，并在深色模式下应用灰色边框。
+.data-footnote-backref：去掉脚注返回链接的下划线。 */
 
 .csl-entry {
   @apply my-5;
 }
+/* csl条目--.csl-entry：设置 CSL（Citation Style Language）条目的上下外边距。 */
 
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
 input:-webkit-autofill,
@@ -29,10 +36,12 @@ input:-webkit-autofill:focus {
     background-color 600000s 0s,
     color 600000s 0s;
 }
+/* 输入框自动填充样式--input:-webkit-autofill 和 input:-webkit-autofill:focus：通过设置非常长的过渡时间来避免输入框自动填充时的默认样式改变。 */
 
 .katex-display {
   overflow: auto hidden;
 }
+/* katex显示样式---.katex-display：设置 Katex 显示区域的溢出行为，水平自动滚动，垂直隐藏溢出。 */
 
 .content-header-link {
   opacity: 0;
@@ -44,8 +53,11 @@ input:-webkit-autofill:focus {
 .content-header-link:hover {
   opacity: 1;
 }
+/* 内容标题链接--.content-header-link：设置内容标题链接的初始不透明度、左外边距和右内边距。
+.content-header:hover .content-header-link, .content-header-link:hover：在内容标题或链接被悬停时，将链接的不透明度设置为 1，使其可见。 */
 
 .linkicon {
   display: inline-block;
   vertical-align: middle;
 }
+/* 链接图标--.linkicon：将链接图标设置为内联块显示，并使其垂直对齐到中间。 */

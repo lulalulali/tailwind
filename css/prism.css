@@ -1,3 +1,4 @@
+/* 这段代码是一个全面的 CSS 样式定义，用于代码高亮显示。它结合了实用程序类（通过 @apply 指令）和自定义样式，为代码块和行、以及代码中的不同语法元素提供了详细的样式定义，使代码在网页上显示得更加美观和易于阅读。 就是说使网页上的代码得到处置 */
 /**
  * CSS Styles for code highlighting.
  * Feel free to customize token styles 
@@ -5,7 +6,8 @@
  * https://github.com/PrismJS/prism-themes
  */
 
-/* Code title styles */
+/* Code title styles代码标题样式 */
+/* .remark-code-title：用于代码块标题的样式。应用了圆角顶部、灰色背景、内边距、等宽字体、小字体、粗体文字、浅灰色文字和深色模式下的灰色背景。.remark-code-title + div > pre：紧跟在代码标题后的 pre 元素样式，移除了顶部的外边距，并应用了圆角顶部的样式。 */
 .remark-code-title {
   @apply rounded-t bg-gray-700 px-5 py-3 font-mono text-sm font-bold text-gray-200 dark:bg-gray-800;
 }
@@ -14,11 +16,13 @@
   @apply mt-0 rounded-t-none;
 }
 
-/* Code block styles */
+/* Code block styles 代码块样式*/
+/* .code-highlight：用于代码块的样式，设置浮动为左，并且最小宽度为 100%。 */
 .code-highlight {
   @apply float-left min-w-full;
 }
 
+/* 代码行样式--.code-line：应用了负的水平外边距、块级显示、左边框宽度为 4 的透明边框、左内边距和右内边距。.code-line.inserted：表示插入的代码行，背景颜色为绿色，透明度为 20%。.code-line.deleted：表示删除的代码行，背景颜色为红色，透明度为 20%。.highlight-line：高亮代码行，应用了负的水平外边距、左边框颜色为主要颜色的 4px 边框、灰色背景，透明度为 50%。.line-number::before：用于显示行号，设置了负的左外边距、右外边距、内联块显示、固定宽度、右对齐的灰色文字。内容为 line 属性的值。 */
 .code-line {
   @apply -mx-4 block border-l-4 border-transparent pl-4 pr-4;
 }
@@ -48,6 +52,8 @@
  * Ported by Sara vieria [@SaraVieira]
  * Added by Souvik Mandal [@SimpleIndian]
  */
+ /* 每种 .token 类表示代码中的不同元素，例如注释、标点符号、标签、关键字、布尔值、数字、字符串等。
+这些类分别设置了颜色、字体样式（例如斜体、粗体）等。 */
 .token.comment,
 .token.prolog,
 .token.cdata {

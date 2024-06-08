@@ -1,3 +1,5 @@
+//  存储站点的元数据信息，可能包括站点标题、描述、作者、社交媒体链接等，这些信息通常用于 SEO 优化和站点头部标签的设置。  一个 JavaScript 对象 siteMetadata，用于存储站点的元数据信息。这些信息通常用于 SEO 优化和站点头部标签的设置。
+
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
   title: 'Next.js Starter Blog',
@@ -43,11 +45,14 @@ const siteMetadata = {
     //   googleAnalyticsId: '', // e.g. G-XXXXXXX
     // },
   },
+  // 分析工具设置，可以是 Plausible, Simple Analytics, Umami, Posthog 或 Google Analytics
+  // Umami 分析网站 ID，通过环境变量设置
   newsletter: {
     // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus
     // Please add your .env file and modify it according to your selection
     provider: 'buttondown',
   },
+  // 邮件列表提供商设置，可以是 mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus
   comments: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
@@ -78,6 +83,18 @@ const siteMetadata = {
       lang: 'en',
     },
   },
+  // 评论系统提供商设置，支持 giscus, utterances, disqus
+  // giscus 仓库
+  // 仓库 ID
+  // 评论类别
+  // 类别 ID
+  // 评论映射方式，支持 pathname, url, title
+  // 是否启用表情反应：1 = 启用 / 0 = 禁用
+  // 是否定期发送讨论元数据：1 = 启用 / 0 = 禁用
+  // 主题设置，支持 light, dark, dark_dimmed, dark_high_contrast, transparent_dark, preferred_color_scheme, custom
+  // 暗黑模式下的主题
+  // 自定义主题 CSS 文件的链接
+  // 语言设置
   search: {
     provider: 'kbar', // kbar or algolia
     kbarConfig: {
@@ -92,6 +109,8 @@ const siteMetadata = {
     //   indexName: 'docsearch',
     // },
   },
+  // 搜索功能提供商，支持 kbar 或 algolia
+  // 搜索文档的路径
 }
 
 module.exports = siteMetadata

@@ -7,3 +7,11 @@
         </tile>
     </msapplication>
 </browserconfig>
+<!-- 一个 browserconfig.xml 文件，用于定义微软应用程序（如 Windows 8 和 10 的开始屏幕磁贴）的配置。它允许网站指定自定义的磁贴图标和颜色，以便在用户将网站固定到开始菜单时显示。 -->
+<!-- <?xml version="1.0" encoding="utf-8"?>: XML 声明，指定 XML 版本和编码。
+<browserconfig>: 根元素，包含所有配置。
+<msapplication>: 包含微软应用程序的配置。
+<tile>: 定义磁贴的设置。
+<square150x150logo src="/mstile-150x150.png"/>: 指定 150x150 像素的磁贴图标，路径为 /mstile-150x150.png。
+<TileColor>#000000</TileColor>: 设置磁贴的背景颜色为黑色 (#000000)。
+用途--这个文件主要用于：自定义在 Windows 开始屏幕上显示的磁贴图标和背景颜色。提供更好的用户体验，使网站固定到开始菜单时显示的内容更美观。 -->
