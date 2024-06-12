@@ -67,8 +67,8 @@ module.exports = () => {
   const plugins = [withContentlayer, withBundleAnalyzer]
   //插件使用:使用 withContentlayer 和 withBundleAnalyzer 插件，集成了 Contentlayer 和捆绑分析功能。
   return plugins.reduce((acc, next) => next(acc), {
-    reactStrictMode: true,//启用 React 严格模式，有助于发现潜在问题。
-    pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],//指定 Next.js 应该处理的页面文件扩展名。
+    reactStrictMode: true, //启用 React 严格模式，有助于发现潜在问题。
+    pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'], //指定 Next.js 应该处理的页面文件扩展名。
     eslint: {
       //指定 ESLint 应该检查的目录。
       dirs: ['app', 'components', 'layouts', 'scripts'],
@@ -102,4 +102,3 @@ module.exports = () => {
     },
   })
 }
-

@@ -13,6 +13,7 @@ export const metadata = genPageMetadata({ title: 'Blog' })
 
 export default function BlogPage() {
   const posts = allCoreContent(sortPosts(allBlogs))
+  console.log('alltheblog', allBlogs)
   //处理博客文章内容,sortPosts(allBlogs): 对博客文章进行排序。allCoreContent: 提取博客文章的核心内容。
   const pageNumber = 1
   //设置初始页码,设置当前页码为1，即第一页。
